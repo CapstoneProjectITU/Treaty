@@ -14,20 +14,20 @@ ALTER TABLE `treaty`.`businessoffer` AUTO_INCREMENT = 1;
 ALTER TABLE `treaty`.`customeroffer` AUTO_INCREMENT = 1;
 
 -- insert script for user
-INSERT INTO `treaty`.`user` (id, email, role, encryptedpassword, isactive)
-    VALUES (1, 'test_1234@gmail.com', 'Customer', 'test1234', 1);
+INSERT INTO `treaty`.`user` (id, email, phonenumber, role, encryptedpassword, isactive)
+    VALUES (1, 'test_1234@gmail.com','1234567890', 'Customer', 'test1234', 1);
 
-INSERT INTO `treaty`.`user` (id, email, role, encryptedpassword, isactive)
-    VALUES (2, 'poonam.6788@gmail.com', 'Customer', 'test1234', 1);
+INSERT INTO `treaty`.`user` (id, email, phonenumber, role, encryptedpassword, isactive)
+    VALUES (2, 'poonam.6788@gmail.com','1234567890', 'Customer', 'test1234', 1);
 
-INSERT INTO `treaty`.`user` (id, email, role, encryptedpassword, isactive)
-    VALUES (3, 'koradepoona1008@students.itu.edu', 'Customer', 'test1234', 1);
+INSERT INTO `treaty`.`user` (id, email, phonenumber, role, encryptedpassword, isactive)
+    VALUES (3, 'koradepoona1008@students.itu.edu','1234567890', 'Customer', 'test1234', 1);
 
-INSERT INTO `treaty`.`user` (id, email, role, encryptedpassword, isactive)
-    VALUES (4, 'poojamahajan2092@gmail.com', 'Owner', 'test1234', 1);
+INSERT INTO `treaty`.`user` (id, email, phonenumber, role, encryptedpassword, isactive)
+    VALUES (4, 'poojamahajan2092@gmail.com','1234567890', 'Owner', 'test1234', 1);
 
-INSERT INTO `treaty`.`user` (id, email, role, encryptedpassword, isactive)
-    VALUES (5, 'rajeshwaripatil09@gmail.com', 'Owner', 'test1234', 1);
+INSERT INTO `treaty`.`user` (id, email, phonenumber, role, encryptedpassword, isactive)
+    VALUES (5, 'rajeshwaripatil09@gmail.com','1234567890', 'Owner', 'test1234', 1);
 
 -- insert script for userdetail
 INSERT INTO `treaty`.`userdetail` (id, userid, firstname, lastname, phonenumber, address1, city, state, country, zipcode, isactive)

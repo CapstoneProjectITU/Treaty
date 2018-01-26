@@ -62,7 +62,7 @@
 			                        VALUES (\"".$signUpemail."\",\"".$signUprole."\",\"". $signUppassword."\")";            
 			            $result = $mysqli->query($query);
 			            if ($result) {
-			                echo '<script>window.location.href = "index.php";</script>';
+			                echo '<script>window.location.href = "user/customer.php#horizontalTab4";</script>';
 			            } else {
 			                $signupresponse="Failed to signup";
 			            }
