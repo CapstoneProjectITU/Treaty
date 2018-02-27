@@ -10,10 +10,12 @@ img{
     border:0;
 }
 #main{
-    background:rgba(254, 206, 26,0.2);
+    background:#ccc;
 	width: 100%;
     height: auto;
+	padding: 3%;
     margin-bottom: 3%;
+	border: 1px solid #aaa;
 }
 #header{
     background:white;
@@ -79,13 +81,13 @@ ul{
     margin-bottom:0;
     margin-right:40px;
 }
-li{
+/*li{
     display:inline;
     padding-right: 0.5em;
     padding-left: 0.5em;
     font-weight: bold;
     border-right: 1px solid #333333;
-}
+}*/
 li a{
     text-decoration: none;
     color: black;

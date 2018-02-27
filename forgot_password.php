@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class=" js cssanimations csstransitions">
 	<head>
-		<title>Login</title>
-		<!-- Meta tag Keywords -->
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="keywords" content="Classic Forms Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-			function hideURLbar(){ window.scrollTo(0,1); } 
-		</script>
-		<!-- Meta tag Keywords -->
-		<!-- css files -->
+	<title>Login</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="../images/favicon.ico">
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } 
+    </script>
+
 		<link href="css/login-style.css" rel="stylesheet" type="text/css" media="all">
 		<link rel="stylesheet" href="css/font-awesome.css">
-		<!-- Font-Awesome-Icons-CSS -->
-		<!-- //css files -->
-		<!-- Web-Fonts -->
-		<link href="//fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+	<!-- Web-Fonts -->
+		<link href='//fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
 		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-		<!-- //Web-Fonts -->
+	<!-- //Web-Fonts -->
+	<?php
+	include 'header.php';
+	?>
+</head>
+
 		<?php 
-			include 'header.php';
 			require 'config.php';
 			
 			if(isset($_POST['email'])){
@@ -69,38 +71,36 @@
 			}
 			?>
 	</head>
-	<body>
-		<div class="navbar" style="position: fixed;width: 100%;">
-			<div class="navbar-inner">
-				<div class="container">
-					<a href="#" class="brand">
-						<img src="images/logo.png" width="120" height="40" alt="Logo" />
-						<!-- This is website logo -->
-					</a>
-					<!-- Navigation button, visible on small resolution -->
-					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<i class="icon-menu"></i>
-					</button>
-					<!-- Main navigation -->
-					<div class="nav-collapse collapse pull-right">
-						<ul class="nav" id="top-navigation">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a href="index.php" class="brand">
+                        <img src="images/logoIcon.png" width="240" height="80" alt="Logo" />
+                        <!-- This is website logo -->
+                    </a>
+                    <!-- Navigation button, visible on small resolution -->
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <i class="icon-menu"></i>
+                    </button>
+                    <!-- Main navigation -->
+                    <div class="nav-collapse collapse pull-right">
+                        <ul class="nav" id="top-navigation">
 							<li><a href="index.php">Home</a></li>
-							<li><a href="">Find Locations</a></li>
-							<li><a href="index.php#service">Services</a></li>
-							<li><a href="index.php#portfolio">Portfolio</a></li>
+							<li><a href="index.php#service">Customer</a></li>
+                            <li><a href="index.php#portfolio">Business</a></li>
 							<li><a href="index.php#about">About</a></li>
 							<li><a href="index.php#clients">Clients</a></li>
 							<li><a href="index.php#price">Price</a></li>
 							<li><a href="index.php#contact">Contact</a></li>
-							<li class="active"><a href="login.php">Login</a></li>
-						</ul>
-					</div>
-					<!-- End main navigation -->
-				</div>
-			</div>
-		</div>
-		<br>
-		<div class="main" style="margin-bottom: 2%;margin-top: 5%;">
+							<li class="active"><a href="login.php">Login</a></li>                           
+                        </ul>
+                    </div>
+                    <!-- End main navigation -->
+                </div>
+            </div>
+        </div>
+        
+		<div class="main" style="margin-bottom: 4%;margin-top: 2%;">
 			<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 				<div class="img-w3l-agile">
 					<img src="images/1.jpg" alt=" ">
@@ -121,7 +121,7 @@
 									}
 								?>
 								</label>
-								<input type="submit" value="Submit">
+								<input class="button" type="submit" value="Submit">
 							</form>
 						</div>
 					</div>
@@ -129,9 +129,7 @@
 			</div>
 			<div class="clear"> </div>
 		</div>
-		<div class="footer" style="padding: 0.5em 0;">
-			<p style="color: #fece1a;">Treaty.com © copyright 2018</p>
-		</div>
+		<?php include 'footer.php'; ?>
 		<!-- js-scripts -->			
 		<!-- js -->
 		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
