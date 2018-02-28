@@ -3,25 +3,47 @@
 	session_start();
 	?>
 <!DOCTYPE html>
-<html>
+<html class=" js cssanimations csstransitions">
 	<head>
-		<title>Business Dashboard</title>
-		<!-- For-Mobile-Apps -->
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-		<!-- //For-Mobile-Apps -->
-		<!-- Style -->
-		<link rel="stylesheet" href="css/user-dashboard.css" type="text/css" media="all" />
-		<link href="css/font-awesome.css" rel="stylesheet">
-		<script type="text/javascript" src="js/jquery.min.js"></script>
-		<script type="text/javascript" src="js/user-dashboard.js"></script>
-		<!-- Web-Fonts -->
+	<title>Business Dashboard</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="../images/favicon.ico">
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+	<link href="css/font-awesome.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="css/user-dashboard.css" type="text/css" media="all" />
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/user-dashboard.js"></script>
+
+	<!-- Web-Fonts -->
 		<link href='//fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
 		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-		<!-- //Web-Fonts -->
+	<!-- //Web-Fonts -->
+
+	<!-- Script for image display after selection -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		function displayImage(input) {
+    		if (input.files && input.files[0]) {
+        	var reader = new FileReader();
+        	reader.onload = function (e) {
+        	$('#business_image').attr('src', e.target.result);
+       		}
+        reader.readAsDataURL(input.files[0]);
+       }
+    }
+	</script>
+	<!-- Script for image display after selection -->
+	
+	<?php
+	include 'header.php';
+	?>
+</head>
 		<?php 
-			include 'business_nav.html';
+
 			require '../config.php';
 			$businessid = $_GET["businessid"];
 			
@@ -98,8 +120,37 @@
 				}
 			}
 			?>
-	</head>
 	<body>
+            <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a href="../index.php" class="brand">
+                        <img src="../images/logoIcon.png" width="240" height="80" alt="Logo" />
+                        <!-- This is website logo -->
+                    </a>
+                    <!-- Navigation button, visible on small resolution -->
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <i class="icon-menu"></i>
+                    </button>
+                    <!-- Main navigation -->
+                    <div class="nav-collapse collapse pull-right">
+                        <ul class="nav">
+                            <li><a href="../index.php">Home</a></li>
+							<?php
+                                if($_SESSION['displaydashboard']){
+                                    echo "<li class='active'><a href='business.php'>Dashboard</a></li>";
+                                }
+                            ?> 
+                            <li><a href="customer_list.php">Customers</a></li>                                                       
+                            <li><a href="business_profile.php">Profile</a></li>
+                            <li><a href="../index.php">Logout</a></li>                           
+                        </ul>
+                    </div>
+                    <!-- End main navigation -->
+                </div>
+            </div>
+        </div>
+        <br><br>
 		<h1></h1>
 		<div class="container">
 			<div class="tab">
@@ -149,6 +200,22 @@
 								<div class="tab-1 resp-tab-content">
 									<p class="secHead">Edit Your Business</p>
 									<div class="register agileits">
+										<!-- Form for Image-->
+										<form action ="#" method="POST" enctype="multipart/form-data" runat="server" class="agile_form" style="margin:0px;">
+                                        <table style="width: 91.6%;">
+                                        	<tr>
+                                            <td style="padding-left: 6px;">
+                                            <div style="width: 100px;height: 100px;border: 1px solid #ccc;margin-bottom: 5px;">
+                                            <img src = "images/default-image.png" alt = "Upload Image" id = "business_image" width="100px" />
+                                            </div>
+                                            </td>
+                                            <td style="vertical-align: bottom;width: 100%;">                                        
+                                            <input type="file" name="image" onchange= "displayImage(this)" style="padding: 0.5em 0.6em;margin-bottom: 6px;"/>                                                  
+                                            </td>
+                                            </tr>
+                                        </table>
+                                        </form>
+
 										<form method="post" class="agile_form">
 											<input type="text" placeholder="Business Name" name="businessname" class="name agileits" required="" 
 												value="<?php echo !isset($businessresultset[0]) ? '' : $businessresultset[0] ?>" readonly />
@@ -172,6 +239,7 @@
 											</div>
 										</form>
 									</div>
+                                    <br>
 								</div>
 								<!-- Delete business -->
 								<div class="tab-1 resp-tab-content">

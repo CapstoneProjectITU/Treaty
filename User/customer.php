@@ -75,7 +75,7 @@
     float: right;
     margin-left: 5px;
 }
-.active:after {
+.agileinfo-recover .active:after {
     content: "\2212";
 }
 .panelAccordion{
@@ -98,7 +98,7 @@
     float: right;
     margin-left: 5px;
 }
-.active:after {
+.agileinfo-recover .active:after {
     content: "\2212";
 }
 .active, .panelAccordion:hover {
@@ -244,6 +244,7 @@
 										$ex1 = new QRGenerator();
 										echo "<img style='max-width:100%;margin-left:25%;' src=".$ex1->generate().">";
 									?>
+                                    <br><br>
 								</div>
 							</div>
 							<!-- Customer Rewards section -->

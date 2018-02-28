@@ -4,15 +4,17 @@
 ?>
 <!DOCTYPE html>
 <html class=" js cssanimations csstransitions">
-<head>
+	<head>
 	<title>Business Owner Profile</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="../images/favicon.ico">
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
-	<link rel="stylesheet" href="css/user-dashboard.css" type="text/css" media="all" />
 	<link href="css/font-awesome.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="css/user-dashboard.css" type="text/css" media="all" />
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/user-dashboard.js"></script>
 
@@ -21,7 +23,11 @@
 		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 	<!-- //Web-Fonts -->
 	<?php
-		include 'business_profile_nav.php';
+	include 'header.php';
+	?>
+</head>
+
+	<?php
         require '../config.php';
 
 		$first_name = $_SESSION['first_name'];
@@ -165,8 +171,39 @@
     	/* close connection */
     	$mysqli->close();
 	?>
-</head>
+
 <body>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a href="../index.php" class="brand">
+                        <img src="../images/logoIcon.png" width="240" height="80" alt="Logo" />
+                        <!-- This is website logo -->
+                    </a>
+                    <!-- Navigation button, visible on small resolution -->
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <i class="icon-menu"></i>
+                    </button>
+                    <!-- Main navigation -->
+                    <div class="nav-collapse collapse pull-right">
+                        <ul class="nav">
+                            <li><a href="../index.php">Home</a></li>
+							<?php
+                                if($_SESSION['displaydashboard']){
+                                    echo "<li><a href='business.php'>Dashboard</a></li>";
+                                }
+                            ?> 
+                            <li><a href="customer_list.php">Customers</a></li>                                                       
+                            <li class="active"><a href="business_profile.php">Profile</a></li>
+                            <li><a href="../index.php">Logout</a></li>                           
+                        </ul>
+                    </div>
+                    <!-- End main navigation -->
+                </div>
+            </div>
+        </div>
+        <br><br>
+
 	<h1></h1>
 	<div class="container">
 		<div class="tab">
@@ -244,10 +281,11 @@
                                               value="<?php echo !isset($profileresultset[7]) ? '' : $profileresultset[7]; ?>" required=""/>
 										<input type="text" placeholder="Zip" name="zip" class="name agileits"
                                               value="<?php echo !isset($profileresultset[8]) ? '' : $profileresultset[8]; ?>" required=""/>
-										<p class="notPara"><br>Do you want offer notifications?&nbsp&nbsp&nbsp<input type="checkbox" name="notifyCheck" checked></p>
+                                        <p class="notPara"><br><input type="checkbox" name="notifyCheck" checked>&nbsp&nbsp&nbspDo you want offer notifications?</p>
 										<div class="submit"><br>
 										  <input type="submit" value="Save">
 										  <input type="submit" value="Cancel">
+                                          <br><br>
 										</div>
 									</form>
 								</div>

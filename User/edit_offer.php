@@ -1,18 +1,20 @@
+<?php
+	// Start the session
+	session_start();
+	?>
 <!DOCTYPE html>
-<html>
-<head>
-
+<html class=" js cssanimations csstransitions">
+	<head>
 	<title>Business Dashboard</title>
 
-	<!-- For-Mobile-Apps -->
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	<!-- //For-Mobile-Apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="../images/favicon.ico">
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
-	<!-- Style -->
-	<link rel="stylesheet" href="css/user-dashboard.css" type="text/css" media="all" />
-	<link href="css/font-awesome.css" rel="stylesheet"> 
+	<link href="css/font-awesome.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="css/user-dashboard.css" type="text/css" media="all" />
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/user-dashboard.js"></script>
 
@@ -20,8 +22,13 @@
 		<link href='//fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
 		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 	<!-- //Web-Fonts -->
+
+	<?php
+	include 'header.php';
+	?>
+</head>
+
 	<?php 
-		include 'business_nav.html';
 		require '../config.php';
 		$offerid = $_GET["offerid"];
 		
@@ -86,8 +93,39 @@
 			}
 		}
 	?>
-</head>
+
 <body>
+            <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a href="../index.php" class="brand">
+                        <img src="../images/logoIcon.png" width="240" height="80" alt="Logo" />
+                        <!-- This is website logo -->
+                    </a>
+                    <!-- Navigation button, visible on small resolution -->
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <i class="icon-menu"></i>
+                    </button>
+                    <!-- Main navigation -->
+                    <div class="nav-collapse collapse pull-right">
+                        <ul class="nav">
+                            <li><a href="../index.php">Home</a></li>
+							<?php
+                                if($_SESSION['displaydashboard']){
+                                    echo "<li class='active'><a href='business.php'>Dashboard</a></li>";
+                                }
+                            ?> 
+                            <li><a href="customer_list.php">Customers</a></li>                                                       
+                            <li><a href="business_profile.php">Profile</a></li>
+                            <li><a href="../index.php">Logout</a></li>                           
+                        </ul>
+                    </div>
+                    <!-- End main navigation -->
+                </div>
+            </div>
+        </div>
+        <br><br>
+
 	<h1></h1>
 	<div class="container">
 		<div class="tab">

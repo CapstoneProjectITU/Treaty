@@ -177,7 +177,7 @@
 		/* close connection */
 		$mysqli->close();
 	?>
-</head>
+
 <body>
         <div class="navbar">
             <div class="navbar-inner">
@@ -286,10 +286,11 @@
                                               value="<?php echo !isset($profileresultset[7]) ? '' : $profileresultset[7]; ?>" required=""/>
 										<input type="text" placeholder="Zip" name="zip" class="name agileits"
                                               value="<?php echo !isset($profileresultset[8]) ? '' : $profileresultset[8]; ?>" required=""/>
-										<p class="notPara"><br>Do you want offer notifications?&nbsp&nbsp&nbsp<input type="checkbox" name="notifyCheck" checked></p>
+										<p class="notPara"><br><input type="checkbox" name="notifyCheck" checked>&nbsp&nbsp&nbspDo you want offer notifications?</p>
 										<div class="submit"><br>
 										  <input type="submit" value="Save">
 										  <input type="submit" value="Cancel">
+                                        <br><br>                                           
 										</div>
 									</form>
 								</div>
@@ -315,8 +316,9 @@
                                         </div>
 										<div class="submit"><br>
 										  <input type="submit" name="save" value="Save">
-										  <input type="submit" name="cancel" value="Cancel">
+										  <input type="submit" name="cancel" value="Cancel">                                       
 										</div>
+
 									</form>
 								</div>
 							</div>
