@@ -91,23 +91,23 @@
 			    //-------Added to solve email error end-----
 
 				//send email
-				$subject = "You have updated your offer!!";
+				$subject = "You have updated your Offer!";
 				$message = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 											 <html xmlns="http://www.w3.org/1999/xhtml">
 											 <head>
 											 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 											 </head>
-											 <body style="background-color:#ffb900;margin:0 auto;text-align: center;width: 500px;padding-top:5%;">
+											 <body style="background-color:#a9c750;margin:0 auto;text-align: center;width: 500px;padding-top:5%; font-size: 20px;">
 											 <img src="https://i2.wp.com/beanexpert.online/wp-content/uploads/2017/06/reset-password.jpg?resize=380%2C240&ssl=1">
 											 <div>
-															 <p> You have updated your offer </p>
+															 <p> You have updated your offer on Treaty </p>
 											 </div>
 											 </body>
 											 </html>';
-				$headers = "From : treatyrewards@gmail.com";
+				$headers = 'From: Treaty <treatyrewards@gmail.com>' . "\r\n";
 				$headers = 'MIME-Version: 1.0' . "\r\n";
 				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-				if(mail($email, $subject, $message, $headers)) {
+				if(mail($email, $subject, $message, $headers, "-f treatyrewards@gmail.com")) {
 					echo '<script>window.location.href = "business.php#horizontalTab2";</script>';
 				}
 			} else {

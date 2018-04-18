@@ -67,18 +67,18 @@
 								 <head>
 								 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 								 </head>
-								 <body style="background-color:#ffb900;margin:0 auto;text-align: center;width: 500px;padding-top:5%;">
+								 <body style="background-color:#a9c750;margin:0 auto;text-align: center;width: 500px;padding-top:5%; font-size: 20px;">
 								 <img src="https://s-media-cache-ak0.pinimg.com/originals/b0/a0/a3/b0a0a33dee17c0640f3db16940447c39.jpg">
 								 <div>
-										 <p> Congratulations '.$amount.' points have been added to your rewards account for '.$businessname.'!! <br>
+										 <p> Congratulations '.$amount.' points have been added to your rewards account for '.$businessname.'! <br>
 									 		 Your total rewards balance is '.$balance.'</p>
 								 </div>
 								 </body>
 								 </html>';
-					$headers = "From : treatyrewards@gmail.com";
+					$headers = 'From: Treaty <treatyrewards@gmail.com>' . "\r\n";
 					$headers = 'MIME-Version: 1.0' . "\r\n";
 					$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-					mail($email, $subject, $message, $headers);
+					mail($email, $subject, $message, $headers, "-f treatyrewards@gmail.com");
 				}
 				
 				//Code end 

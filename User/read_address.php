@@ -1,7 +1,7 @@
 
 <?php
     
-    session_start();        
+    //session_start();        
     require "../config.php";
 
     $user_lat = number_format(($_REQUEST['user_lat']),6);
@@ -11,13 +11,14 @@
        
     // Calculate the distance between user location and all businesses.
     if ( $businesssector_id == "" or $businesssector_id == "all" ){
-    	$query = "SELECT id,businessname,businesssector,address1,address2,city,state,country,zipcode,businessphonenumber,latitude,longitude,isactive,businessimage, round(( 3959 * acos( cos( radians(".$user_lat.") ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(".$user_lon.") ) + sin( radians(".$user_lat.") ) * sin( radians( latitude ) ) ) ),1) AS distance FROM treaty.businessdetail HAVING distance < 8 ORDER BY distance LIMIT 0 , 20;";    
+    	$query = "SELECT id,businessname,businesssector,address1,address2,city,state,country,zipcode,businessphonenumber,latitude,longitude,isactive,businessimage, round(( 3959 * acos( cos( radians(".$user_lat.") ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(".$user_lon.") ) + sin( radians(".$user_lat.") ) * sin( radians( latitude ) ) ) ),1) AS distance FROM businessdetail HAVING distance < 8 ORDER BY distance LIMIT 0 , 20;";    
 	}
 	else{
-		$query = "SELECT id,businessname,businesssector,address1,address2,city,state,country,zipcode,businessphonenumber,latitude,longitude,isactive,businessimage, round(( 3959 * acos( cos( radians(".$user_lat.") ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(".$user_lon.") ) + sin( radians(".$user_lat.") ) * sin( radians( latitude ) ) ) ),1) AS distance FROM treaty.businessdetail WHERE businesssector =" . $businesssector_id . " HAVING distance < 8 ORDER BY distance LIMIT 0 , 20;";
+		$query = "SELECT id,businessname,businesssector,address1,address2,city,state,country,zipcode,businessphonenumber,latitude,longitude,isactive,businessimage, round(( 3959 * acos( cos( radians(".$user_lat.") ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(".$user_lon.") ) + sin( radians(".$user_lat.") ) * sin( radians( latitude ) ) ) ),1) AS distance FROM businessdetail WHERE businesssector =" . $businesssector_id . " HAVING distance < 8 ORDER BY distance LIMIT 0 , 20;";
 	}
      
-    $result = $mysqli->query($query);       
+    $result = $mysqli->query($query);    
+    //$result = mysqli_query($mysqli,$query);    
     $markers=array();
     $tagCount=0;
     while($row = mysqli_fetch_array($result)){

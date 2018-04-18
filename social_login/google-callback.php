@@ -1,7 +1,14 @@
 <?php
-	
+
 	include '../config.php';
 	require_once "google_config.php";
+	
+	if (!function_exists('curl_reset')){
+		function curl_reset(&$ch)
+		{
+			$ch = curl_init();
+		}
+	} 
 	
 	if(isset($_SESSION['google_access_token']))
 		$gClient->setAccessToken($_SESSION['google_access_token']);
@@ -9,8 +16,10 @@
 		$token = $gClient->fetchAccessTokenWithAuthCode($_GET['code']);
 		$_SESSION['google_access_token'] = $token;		
 	}else{
-		header('Location: ../login.php');
-		exit();
+		//header('Location: ../login.php');
+		//exit();		
+		echo '<script>window.location.href = "../login.php";</script>';
+		//print_r($_REQUEST);
 	}
 
 	$oAuth = new Google_Service_Oauth2($gClient);
@@ -28,11 +37,13 @@
 			$row = $result->fetch_array();
 			$_SESSION['userid'] = $row['id']; 
 			if(strcasecmp($row['role'], 'Business Owner') == 0) {
-				header('Location: ../User/business_profile.php');
-				exit();
+				//header('Location: ../User/business_profile.php');
+				//exit();
+				echo '<script>window.location.href = "../User/business_profile.php";</script>';
 			} else {
-				header('Location: ../User/customer_profile.php');
-				exit();
+				//header('Location: ../User/customer_profile.php');
+				//exit();
+				echo '<script>window.location.href = "../User/customer_profile.php";</script>';
 			}
 		}
 	}
@@ -45,8 +56,9 @@
 		$result = $mysqli->query($query);
 		if ($result->num_rows > 0) {
 			 $_SESSION['signupresponse_social'] = "User with email already exists. Please sign in.";
-			 header('Location: ../login.php');
-			 exit();
+			 //header('Location: ../login.php');
+			 //exit();
+			 echo '<script>window.location.href = "../login.php";</script>';
 		}
 		else
 		{
@@ -68,13 +80,15 @@
 		        }
 		        
 				if(strcasecmp($_SESSION['signUprole_social'], 'Business Owner') == 0){
-					header('Location: ../User/business_profile.php');
-					exit();
+					//header('Location: ../User/business_profile.php');
+					//exit();
+					echo '<script>window.location.href = "../User/business_profile.php";</script>';
 				} 
 				else
 				{
-					header('Location: ../User/customer_profile.php');
-					exit();
+					//header('Location: ../User/customer_profile.php');
+					//exit();
+					echo '<script>window.location.href = "../User/customer_profile.php";</script>';
 				}
 			}
 			else 

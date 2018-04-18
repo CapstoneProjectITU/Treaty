@@ -1,3 +1,6 @@
+<?php
+	session_start();
+	?>
 <!DOCTYPE html>
 <html class=" js cssanimations csstransitions">
 
@@ -66,8 +69,7 @@
 		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 	<!-- //Web-Fonts -->
 	<?php
-	include 'header.php';
-	session_start();
+	include 'header.php';	
 	?>
 </head>
 <body>

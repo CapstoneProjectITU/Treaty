@@ -136,15 +136,15 @@ session_start();
 		            $result = $mysqli->query($query);
 		            if ($result) {
 						//send email
-						$subject = "Congratulations!!Welcome to Treaty!!";
+						$subject = "Congratulations! Welcome to Treaty!";
 						$message = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 													 <html xmlns="http://www.w3.org/1999/xhtml">
 													 <head>
 													 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 													 </head>
-													 <body style="background-color:#ffb900;margin:0 auto;text-align: center;width: 500px;padding:5%;">
+													 <body style="background-color:#a9c750;margin:0 auto;text-align: center;width: 500px;padding:5%; font-size: 20px;">
 															 <div>
-																	 <p> Thank you for creating an account with Treaty. We are here to serve you better!! </p>
+																	 <p> Thank you for creating an account with Treaty. We are here to serve you better! </p>
 															 </div>
 													 </body>
 													 </html>';
@@ -188,20 +188,24 @@ session_start();
 					$_SESSION['userid'] = $row['id'];
 
 					if(strcasecmp($row['role'], 'Business Owner') == 0) {
-						header('Location: User/business_profile.php');
-						exit();
+						//header('Location: User/business_profile.php');
+						//exit();
+						echo '<script>window.location.href = "User/business_profile.php";</script>';
 					} else {
-						header('Location: User/customer_profile.php');
-						exit();
+						//header('Location: User/customer_profile.php');
+						//exit();
+						echo '<script>window.location.href = "User/customer_profile.php";</script>';
 					}
 				}
 			}
-			$redirectURL = "http://localhost/Treaty/social_login/fb-callback.php";
+			//$redirectURL = "http://localhost/Treaty/social_login/fb-callback.php";
+			$redirectURL = "https://www.ruchirkute.com/Treaty/social_login/fb-callback.php";
 			$permissions = ['email'];
 			$fb_loginURL = $helper->getLoginUrl($redirectURL, $permissions);
-
-			header('Location:'.$fb_loginURL);
-			exit();
+			//echo "URL:".$fb_loginURL;die;
+			//header('Location:'.$fb_loginURL);
+			//exit();
+			echo '<script>window.location.href = "'.$fb_loginURL.'";</script>';
 		}
 
 		//Facebook Sign Up
@@ -214,8 +218,9 @@ session_start();
 				$result = $mysqli->query($query);
 				if ($result->num_rows > 0) {
 					 $signupresponse_social="User with email already exists. Please sign in.";
-					 header('Location: login.php');
-					 exit();
+					 //header('Location: login.php');
+					 //exit();
+					 echo '<script>window.location.href = "login.php";</script>';
 
 				}
 				else
@@ -237,13 +242,15 @@ session_start();
 				        }
 
 						if(strcasecmp($signUprole_social, 'Business Owner') == 0) {
-							header('Location: User/business_profile.php');
-							exit();
+							//header('Location: User/business_profile.php');
+							//exit();
+							echo '<script>window.location.href = "User/business_profile.php";</script>';
 						}
 						else
 						{
-							header('Location: User/customer_profile.php');
-							exit();
+							//header('Location: User/customer_profile.php');
+							//exit();
+							echo '<script>window.location.href = "User/customer_profile.php";</script>';
 						}
 		            }
 		            else
@@ -252,12 +259,15 @@ session_start();
 		            }
 				}
 			}
-			$redirectURL = "http://localhost/Treaty/social_login/fb-callback.php";
+			//$redirectURL = "http://localhost/Treaty/social_login/fb-callback.php";
+			$redirectURL = "https://www.ruchirkute.com/Treaty/social_login/fb-callback.php";
 			$permissions = ['email'];
 			$fb_loginURL = $helper->getLoginUrl($redirectURL, $permissions);
 
-			header('Location:'.$fb_loginURL);
-			exit();
+			//header('Location:'.$fb_loginURL);
+			//exit();
+			echo '<script>window.location.href = "'.$fb_loginURL.'";</script>';
+			exit;
 		}
 
 		//Google Sign In
@@ -273,17 +283,24 @@ session_start();
 					$_SESSION['userid'] = $row['id'];
 
 					if(strcasecmp($row['role'], 'Business Owner') == 0) {
-						header('Location: User/business_profile.php');
-						exit();
+						//header('Location: User/business_profile.php');
+						echo '<script>window.location.href = "User/business_profile.php";</script>';
+						//exit();
 					} else {
-						header('Location: User/customer_profile.php');
-						exit();
+						//header('Location: User/customer_profile.php');
+						echo '<script>window.location.href = "User/customer_profile.php";</script>';
+                        //exit();
 					}
 				}
 			}
-			$google_loginURL = $gClient->createAuthUrl();
-			header('Location:'.$google_loginURL);
-			exit();
+			
+			$google_loginURL = $gClient->createAuthUrl();			
+			//header('Location:'.$google_loginURL);			
+			//exit();
+			//echo "Google login url:".$google_loginURL;die;
+			echo '<script>window.location.href = "'.$google_loginURL.'";</script>';
+			exit;
+			
 		}
 
 		//Google Sign up
@@ -296,8 +313,9 @@ session_start();
 				$result = $mysqli->query($query);
 				if ($result->num_rows > 0) {
 					 $signupresponse_social="User with email already exists. Please sign in.";
-					 header('Location: login.php');
-					 exit();
+					 //header('Location: login.php');
+					 //exit();
+					 echo '<script>window.location.href = "login.php";</script>';
 				}
 				else
 				{
@@ -317,13 +335,17 @@ session_start();
 				        }
 
 						if(strcasecmp($signUprole_social, 'Business Owner') == 0) {
-							header('Location: User/business_profile.php');
-							exit();
+							//header('Location: User/business_profile.php');
+							//exit();
+							echo '<script>window.location.href = "User/business_profile.php";</script>';
+							exit;
 						}
 						else
 						{
-							header('Location: User/customer_profile.php');
-							exit();
+							//header('Location: User/customer_profile.php');
+							//exit();
+							echo '<script>window.location.href = "User/customer_profile.php";</script>';
+							exit;
 						}
 		            }
 		            else
@@ -334,8 +356,11 @@ session_start();
 			}
 			$google_loginURL = $gClient->createAuthUrl();
 
-			header('Location:'.$google_loginURL);
-			exit();
+			//header('Location:'.$google_loginURL);
+			//exit();
+			echo '<script>window.location.href = "'.$google_loginURL.'";</script>';
+			exit;
+
 		}
 	?>
 	</head>

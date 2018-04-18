@@ -217,7 +217,7 @@
 	                       <head>
 	                       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	                       </head>
-	                       <body style="background-color:#ffb900;margin:0 auto;text-align: center;width: 500px;padding-top:5%;">
+	                       <body style="background-color:#a9c750;margin:0 auto;text-align: center;width: 500px;padding-top:5%; font-size: 20px;">
 	                       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgo0PD3ASp5rYX3eTryJZOpefQVQzCHcyfA5ASAkF36XyyDDRNMw">
 	                       <div>
                                <p> You have registered your business </p>
@@ -226,10 +226,10 @@
 	                       </div>
 	                       </body>
 	                       </html>';
-				        $headers = "From : treatyrewards@gmail.com";
+				        $headers = 'From: Treaty <treatyrewards@gmail.com>' . "\r\n";
 				        $headers = 'MIME-Version: 1.0' . "\r\n";
 				        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-						if(mail($email, $subject, $message, $headers)){
+						if(mail($email, $subject, $message, $headers, "-f treatyrewards@gmail.com")){
 		            		echo '<script>window.location.href = "business.php#horizontalTab3";</script><meta http-equiv="refresh" content="0">';
 						}
                 	} else {
@@ -265,7 +265,7 @@
 										 <head>
 										 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 										 </head>
-										 <body style="background-color:#ffb900;margin:0 auto;text-align: center;width: 500px;padding-top:5%;">
+										 <body style="background-color:#a9c750;margin:0 auto;text-align: center;width: 500px;padding-top:5%; font-size: 15px;">
 										 <img src="https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAhfAAAAJDQ1YTFiNThlLTg1OWYtNGY0MS05NmU1LWM3NDczNjBjOWU0Mg.png">
 										 <div>
 											<p> A new offer has been created for the business you subscribed.<br>
@@ -279,10 +279,10 @@
 										 </div>
 										 </body>
 										 </html>';
-							$headers = "From : treatyrewards@gmail.com";
+							$headers = 'From: Treaty <treatyrewards@gmail.com>' . "\r\n";
 							$headers = 'MIME-Version: 1.0' . "\r\n";
 							$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-							mail($email, $subject, $message, $headers);
+							mail($email, $subject, $message, $headers, "-f treatyrewards@gmail.com");
 				    	}
 					}
 				}
@@ -594,26 +594,36 @@
 								<div class="tab-1 resp-tab-content">
 									<p class="secHead">Your Business Offers</p>
 									<div class="register agileits">
-										<?php foreach($offerlistresultset as $value): ?>
+										<?php 
+										if (is_array($offerlistresultset) || is_object($value))
+										{
+											foreach($offerlistresultset as $value): ?>
 											<div class="offerDiv">
 												<span class="offerDesc"><?php echo explode("@",$value)[0];echo "<br>";echo explode("@",$value)[3];?></span>
                                                 <span><i style="color:#333;cursor: pointer;" class="fa fa-4x fa-pencil-square-o" aria-hidden="true" onClick="editOffer(<?php echo explode("@",$value)[2]; ?>)"></i></span>
 												<?php /*?><img class="btn" width="100" src="images/setting.png" height="100" onClick="editOffer(<?php echo explode("@",$value)[2]; ?>)"></img><?php */?>
 											</div>
-										<?php endforeach; ?>
+										<?php endforeach; 
+										}
+										?>
 									</div>
 								</div>
 								<!-- All Business section -->
 								<div class="tab-1 resp-tab-content">
 									<p class="secHead">Your Business Branch List</p>
 									<div class="register agileits">
-										<?php foreach($businesslistresultset as $value): ?>
+										<?php 
+										if (is_array($businesslistresultset) || is_object($value))
+										{
+											foreach($businesslistresultset as $value): ?>
 											<div class="offerDiv">
 												<span class="offerDesc"><?php echo explode("-",$value)[0];?></span>
                                                 <span><i style="color:#333;cursor: pointer;" class="fa fa-4x fa-pencil-square-o" aria-hidden="true" onClick="editBusiness(<?php echo explode("-",$value)[1]; ?>)"></i></span>
 												<?php /*?><img class="btn" width="100" src="images/setting.png" height="100" onClick="editBusiness(<?php echo explode("-",$value)[1]; ?>)"></img><?php */?>
 											</div>
-									    <?php endforeach; ?>
+									    <?php endforeach; 
+										}
+										?>
 									</div>
 								</div>
 								<!-- Register Business section -->
@@ -792,7 +802,7 @@
 									    $bar_chart_result1 = $mysqli->query($query_bar_chart1);
 									 								    
 										//echo '<pre>',print_r($bar_chart_array),'</pre>';	
-										//Offer and redeem count
+										//No. of visits
 										$query_bar_chart2 = "SELECT DATE(created) as date,count(distinct userid) as total_visits FROM rewardtransaction WHERE businessid = ".$userid." GROUP BY DATE(created) ORDER BY DATE(created);";
 									    $bar_chart_result2 = $mysqli->query($query_bar_chart2);	
 

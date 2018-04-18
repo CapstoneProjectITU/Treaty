@@ -91,6 +91,52 @@ INSERT INTO `treaty`.`businesssector` (id, businesssectortext)
 INSERT INTO `treaty`.`businesssector` (id, businesssectortext)
     VALUES (15, 'Clothing Retail');    
 
+INSERT INTO businesssector (id, businesssectortext)
+    VALUES (1, 'Restaurant');
+
+INSERT INTO businesssector (id, businesssectortext)
+    VALUES (2, 'Cafe');
+
+INSERT INTO businesssector (id, businesssectortext)
+    VALUES (3, 'Bar');
+
+INSERT INTO businesssector (id, businesssectortext)
+    VALUES (4, 'Supermarket');    
+
+INSERT INTO businesssector (id, businesssectortext)
+    VALUES (5, 'Spa');
+
+INSERT INTO businesssector (id, businesssectortext)
+    VALUES (6, 'Beauty Salon');
+
+INSERT INTO businesssector (id, businesssectortext)
+    VALUES (7, 'Gym');
+
+INSERT INTO businesssector (id, businesssectortext)
+    VALUES (8, 'Laundry');
+
+INSERT INTO businesssector (id, businesssectortext)
+    VALUES (9, 'Cleaning Services');
+
+INSERT INTO businesssector (id, businesssectortext)
+    VALUES (10, 'Auto Repairs');
+    
+INSERT INTO businesssector (id, businesssectortext)
+    VALUES (11, 'Convenience & Gas');    
+
+INSERT INTO businesssector (id, businesssectortext)
+    VALUES (12, 'Florist');    
+
+INSERT INTO businesssector (id, businesssectortext)
+    VALUES (13, 'Pet Store');    
+
+INSERT INTO businesssector (id, businesssectortext)
+    VALUES (14, 'Tailoring Services');    
+
+INSERT INTO businesssector (id, businesssectortext)
+    VALUES (15, 'Clothing Retail');    
+
+
 
 -- insert script for businessdetail
 

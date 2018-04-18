@@ -21,6 +21,15 @@
     <style>
 	.address-list{width: 40%;float: right;height: 690px;overflow-y: auto;} @media (max-width: 1200px) {.address-list{width: 40%;float: left;height: 1000px;overflow-y: auto;}}
 	</style>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-2715345720029827",
+        enable_page_level_ads: true
+      });
+    </script>
+
 	<?php
 	include 'header.php';
 	?>
@@ -186,12 +195,12 @@
     async defer></script>   
 
     <!-- js-scripts -->
-    <!-- js -->
-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <!-- js 
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>-->
     <!-- //js -->
     <!-- tabs -->
     <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
-    <script type="text/javascript">
+    <?php /*?><script type="text/javascript">
         $(document).ready(function () {
             $('#horizontalTab').easyResponsiveTabs({
                 type: 'default', //Types: default, vertical, accordion
@@ -199,9 +208,9 @@
                 fit: true   // 100% fit in a container
             });
         });
-    </script>  
+    </script> <?php */?> 
     
-        <script src="js/jquery.js"></script>
+        <script src="../js/jquery.js"></script>
         <script type="text/javascript" src="../js/jquery.mixitup.js"></script>
         <script type="text/javascript" src="../js/bootstrap.js"></script>
         <script type="text/javascript" src="../js/modernizr.custom.js"></script>
@@ -210,7 +219,7 @@
         <script type="text/javascript" src="../js/jquery.placeholder.js"></script>
         <script type="text/javascript" src="../js/jquery.inview.js"></script>
         <!-- Load google maps api and call initializeMap function defined in app.js -->
-        <script async="" defer="" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKtmIHbU9xj413vxhL-oJHz8ybTyF60KQ&callback=initializeMap"></script>
+<?php /*?>        <script async="" defer="" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKtmIHbU9xj413vxhL-oJHz8ybTyF60KQ&callback=initializeMap"></script><?php */?>
 
 
         <!-- <script async="" defer="" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initializeMap"></script> -->

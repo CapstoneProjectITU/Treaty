@@ -110,17 +110,17 @@
       															 <head>
       															 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       															 </head>
-      															 <body style="background-color:#ffb900;margin:0 auto;text-align: center;width: 500px;padding-top:5%;">
+      															 <body style="background-color:#a9c750;margin:0 auto;text-align: center;width: 500px;padding-top:5%; font-size: 20px;">
       															 <img src="https://i.pinimg.com/474x/1a/54/78/1a5478269e366828ee609b8ff07ba331--tips-and-tricks-shells.jpg">
       															 <div>
-      																	<p>Your password has been updated. If you have not updated your password, please call our customer care.</p>
+      																	<p>Your password for Treaty has been updated. If you have not updated your password, please call our customer care.</p>
       															 </div>
       															 </body>
       															 </html>';
-      								$headers = "From : treatyrewards@gmail.com";
+      								$headers = 'From: Treaty <treatyrewards@gmail.com>' . "\r\n";
       								$headers = 'MIME-Version: 1.0' . "\r\n";
       								$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-      								mail($email, $subject, $message, $headers);
+      								mail($email, $subject, $message, $headers, "-f treatyrewards@gmail.com");
                       echo '<script>alert("Password Changed Sucessfully");</script>';
                       echo '<script>window.location.href = "/Treaty/User/business_profile.php";</script>';
                   } else {
