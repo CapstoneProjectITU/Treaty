@@ -50,17 +50,17 @@
 			                       <head>
 			                       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 			                       </head>
-			                       <body style="background-color:#ffb900;margin:0 auto;text-align: center;width: 500px;padding-top:5%;">
+			                       <body style="background-color:#a9c750;margin:0 auto;text-align: center;width: 500px;padding-top:5%; font-size: 20px;">
 			                       <img src="https://i2.wp.com/beanexpert.online/wp-content/uploads/2017/06/reset-password.jpg?resize=380%2C240&ssl=1">
 			                       <div>
-			                               <p>Please use this password to reset your new passowrd for login : <b>'.$password.'</b><br>Please click the following link to reset your password : <a href ="http://localhost:8888/Treaty/reset_password.php">Click here</a></p>
+			                               <p>Please use this password to reset your new passowrd for Treaty login : <b>'.$password.'</b><br>Please click the following link to reset your password : <a href ="https://www.ruchirkute.com/Treaty/reset_password.php">Click here</a></p>
 			                       </div>
 			                       </body>
 			                       </html>';
-			        $headers = 'From : treatyrewards@gmail.com'. "\r\n";
+			        $headers = 'From: Treaty <treatyrewards@gmail.com>' . "\r\n";
 			        $headers = 'MIME-Version: 1.0' . "\r\n";
 			        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-			        if(mail($email, $subject, $message, $headers)){ 
+			        if(mail($email, $subject, $message, $headers, "-f treatyrewards@gmail.com")){ 
 			            echo '<script>window.location.href = "reset_password.php";</script>';
 			        }
 			    } else {

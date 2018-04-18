@@ -15,4 +15,5 @@
 	]);
 
 	$helper = $FB->getRedirectLoginHelper();
+	$_SESSION['FBRLH_state']=$_GET['state'];
 ?>

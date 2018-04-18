@@ -1,9 +1,11 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <?php
-            include 'header.php';
-            session_start();
+            include 'header.php';            
         ?>
         <link rel="icon" href="images/favicon.ico" type="icon">
     </head>    
@@ -428,7 +430,7 @@
                 <div class="row-fluid team">
                     <div class="span4" id="first-person">
                         <div class="thumbnail">
-                            <img src="images/Slider01.png" alt="team 1">
+                            <img src="images/sliderup01.jpg" alt="team 1">
                             <h3>Customer Acquisition</h3>
                             <div class="mask">
                                 <h2></h2>
@@ -438,7 +440,7 @@
                     </div>
                     <div class="span4" id="second-person">
                         <div class="thumbnail">
-                            <img src="images/Slider01.png" alt="team 1">
+                            <img src="images/sliderup02.jpg" alt="team 1">
                             <h3>Loyalty and Retention</h3>
                             <div class="mask">
                                 <h2></h2>
@@ -448,7 +450,7 @@
                     </div>
                     <div class="span4" id="third-person">
                         <div class="thumbnail">
-                            <img src="images/Slider01.png" alt="team 1">
+                            <img src="images/sliderup03.jpg" alt="team 1">
                             <h3>Powerful Promotions</h3>
                             <div class="mask">
                                 <h2></h2>
